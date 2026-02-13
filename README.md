@@ -196,3 +196,10 @@ ROCm components retain AMD's original licenses.
 *AMD GPU compute on POWER8 - because vendor choice matters*
 
 </div>
+
+
+## 中文简介
+
+Elyan Labs POWER 项目 - 为 IBM POWER 和复古系统提供现代支持。
+
+Contributed by eelaine-wzw
