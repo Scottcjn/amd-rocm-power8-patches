@@ -1,5 +1,48 @@
 <div align="center">
 
+[![License](https://img.shields.io/github/license/Scottcjn/amd-rocm-power8-patches)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/Scottcjn/amd-rocm-power8-patches)](https://github.com/Scottcjn/amd-rocm-power8-patches/stargazers)
+[![Issues](https://img.shields.io/github/issues/Scottcjn/amd-rocm-power8-patches)](https://github.com/Scottcjn/amd-rocm-power8-patches/issues)
+
+## Usage Examples
+
+### Basic Patch Application
+
+```bash
+# Clone the repository
+git clone https://github.com/Scottcjn/amd-rocm-power8-patches.git
+cd amd-rocm-power8-patches
+
+# Apply patches to ROCm source
+cd /path/to/rocm-source
+patch -p1 < /path/to/amd-rocm-power8-patches/rocm-power8.patch
+
+# Build ROCm
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j$(nproc)
+```
+
+### Verify Patch
+
+```bash
+# Check if patch applies cleanly
+patch --dry-run -p1 < rocm-power8.patch
+
+# View patch contents
+cat rocm-power8.patch
+```
+
+### Build with Optimizations
+
+```bash
+# Power8-specific optimizations
+cmake .. \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_C_FLAGS="-mcpu=power8 -mtune=power8 -O3" \
+  -DCMAKE_CXX_FLAGS="-mcpu=power8 -mtune=power8 -O3"
+```
+
 # ROCm for AMD GPUs on IBM POWER8
 
 [![POWER8](https://img.shields.io/badge/POWER8-ppc64le-blue)](https://github.com/Scottcjn/amd-rocm-power8-patches)
